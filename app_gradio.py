@@ -1,11 +1,4 @@
-"""
-app_gradio.py — Gradio web interface with 3 modes:
-  1. JEE Upload  — upload a report manually
-  2. JEE Lookup  — fetch by country from WHO
-  3. SPAR Lookup — fetch SPAR web page by country
 
-Launch: python app_gradio.py
-"""
 import os, re, sys, time, tempfile
 from pathlib import Path
 import gradio as gr
@@ -27,7 +20,7 @@ def _extract_year(text):
     return years[-1] if years else "Unknown"
 
 
-# ── JEE pipeline (shared by upload and lookup) ────────────────────────────
+
 
 def _run_jee_pipeline(report_path, country, api_key, backend, jee_url=None, jee_year=None, progress=None):
     if progress: progress(0.2, desc="Loading report...")
@@ -82,7 +75,6 @@ def _run_jee_pipeline(report_path, country, api_key, backend, jee_url=None, jee_
     return pdf_path, status
 
 
-# ── Tab 1: JEE Upload ────────────────────────────────────────────────────
 
 def jee_upload_fn(file, country, year, api_key, backend, progress=gr.Progress()):
     if not file: raise gr.Error("Please upload a JEE report.")
@@ -93,7 +85,7 @@ def jee_upload_fn(file, country, year, api_key, backend, progress=gr.Progress())
                              jee_year=year.strip() if year else None, progress=progress)
 
 
-# ── Tab 2: JEE Lookup ────────────────────────────────────────────────────
+
 
 def jee_lookup_fn(country, api_key, backend, progress=gr.Progress()):
     if not country: raise gr.Error("Please enter a country name.")
@@ -109,7 +101,7 @@ def jee_lookup_fn(country, api_key, backend, progress=gr.Progress()):
                              jee_url=meta.get("url"), jee_year=meta.get("year"), progress=progress)
 
 
-# ── Tab 3: SPAR Lookup ───────────────────────────────────────────────────
+
 
 def spar_lookup_fn(country, year, progress=gr.Progress()):
     if not country: raise gr.Error("Please enter a country name.")
