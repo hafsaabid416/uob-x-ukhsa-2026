@@ -1,9 +1,4 @@
-"""
-app.py — Streamlit web interface for JEE Report Summarisation.
 
-Launch locally:   streamlit run app.py
-Deploy free:      push to GitHub → connect at share.streamlit.io
-"""
 import os
 import sys
 import time
@@ -26,7 +21,7 @@ from llm_summariser import summarise
 from pdf_formatter import generate_pdf
 from jee_fetcher import fetch_jee_report
 
-# ── Page config ───────────────────────────────────────────────────────────
+
 
 st.set_page_config(
     page_title="JEE Report Summariser",
@@ -34,7 +29,7 @@ st.set_page_config(
     layout="centered",
 )
 
-# ── Sidebar: API key ─────────────────────────────────────────────────────
+
 
 with st.sidebar:
     st.markdown("### ⚙️ Settings")
@@ -71,7 +66,7 @@ with st.sidebar:
         "Built for MSc AI/ML dissertation research."
     )
 
-# ── Main header ──────────────────────────────────────────────────────────
+
 
 st.markdown(
     """
@@ -88,7 +83,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# ── Input mode tabs ──────────────────────────────────────────────────────
+
 
 tab_auto, tab_upload = st.tabs(["🌐 Fetch by Country", "📄 Upload Report"])
 
@@ -172,7 +167,7 @@ with tab_upload:
         if not upload_country:
             st.warning("Please enter the country name.")
 
-# ── Run pipeline ─────────────────────────────────────────────────────────
+
 
 if report_path and country:
     st.markdown("---")
@@ -269,7 +264,7 @@ if report_path and country:
             st.code(traceback.format_exc())
             st.stop()
 
-    # ── Display results ───────────────────────────────────────────────
+ 
 
     st.markdown("---")
     st.markdown("### 📄 Generated Summary")
