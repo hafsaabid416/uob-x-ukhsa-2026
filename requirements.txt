@@ -1,0 +1,18 @@
+# Web app (Gradio works in Colab out of the box)
+gradio>=4.0.0
+
+# Optional: Streamlit (for standalone deployment)
+# streamlit>=1.35.0
+
+# LLM backends
+requests>=2.31.0
+
+# PDF generation
+reportlab>=4.0.0
+
+# PDF reading
+pdfplumber>=0.11.0
+pypdf>=4.0.0
+
+# JEE report fetching
+duckduckgo-search>=6.0.0

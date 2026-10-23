@@ -1,0 +1,14 @@
+LLM_BACKEND = "groq"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models"
+ANTHROPIC_MODEL = "claude-sonnet-4-6"
+LLM_MAX_TOKENS = 4096
+LLM_TEMPERATURE = 0.2
+SCORE_RED = {1}
+SCORE_YELLOW = {2, 3}
+SCORE_GREEN = {4, 5}
+SCORE_LABELS = {1:"No capacity",2:"Limited capacity",3:"Developed capacity",4:"Demonstrated capacity",5:"Sustainable capacity"}
+SECTION_MAP = {"P1":"Legal Instruments","P2":"Financing","P3":"IHR Coordination","P4":"Zoonotic Diseases","P5":"Food Safety","P6":"Biosafety & Biosecurity","P7":"Immunization","P8":"Immunization","D1":"National Laboratory System","D2":"Surveillance","D3":"Reporting","D4":"Workforce Development","R1":"Emergency Preparedness","R2":"Emergency Response Operations","R3":"Linking Public Health & Security","R4":"Medical Countermeasures","R5":"Risk Communication","CE":"Chemical Events","CE2":"Chemical Events","RE":"Radiation Emergencies","PoE":"Points of Entry","E":"Points of Entry","P":"IHR Coordination","R":"Emergency Preparedness","D":"National Laboratory System"}
+OUTPUT_DIR = "outputs"
